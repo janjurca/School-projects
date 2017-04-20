@@ -1,0 +1,231 @@
+\hypertarget{classvlakno}{}\section{Dokumentace třídy vlakno}
+\label{classvlakno}\index{vlakno@{vlakno}}
+Diagram dědičnosti pro třídu vlakno\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvlakno}
+\end{center}
+\end{figure}
+\subsection*{Signály}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classvlakno_a84e4288b71add497b01c136f769e450a}{}void {\bfseries postup} (int)\label{classvlakno_a84e4288b71add497b01c136f769e450a}
+
+\item 
+\hypertarget{classvlakno_a74cb6d1e1b06c8bea2b4d1c7a29f6a86}{}void {\bfseries stav} (Q\+String)\label{classvlakno_a74cb6d1e1b06c8bea2b4d1c7a29f6a86}
+
+\end{DoxyCompactItemize}
+\subsection*{Veřejné metody}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classvlakno_a102c887fab360691a40c3ab39fc4f07c}{vlakno} (Q\+Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classvlakno_a102c887fab360691a40c3ab39fc4f07c}{vlakno\+::vlakno} \end{DoxyCompactList}\item 
+void \hyperlink{classvlakno_ab7d88058b2c59385ff62a1f614afdbc1}{run} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classvlakno_ab7d88058b2c59385ff62a1f614afdbc1}{vlakno\+::run} \end{DoxyCompactList}\item 
+int \hyperlink{classvlakno_aee3ebe4032780ee3e04f4d96869a1647}{poslat\+\_\+int} (int data)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classvlakno_aee3ebe4032780ee3e04f4d96869a1647}{vlakno\+::poslat\+\_\+int} \end{DoxyCompactList}\item 
+void \hyperlink{classvlakno_ab8e99f38af287397d9ef196a15e3e9e2}{zapsat} (int data)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classvlakno_ab8e99f38af287397d9ef196a15e3e9e2}{vlakno\+::zapsat} \end{DoxyCompactList}\item 
+void \hyperlink{classvlakno_aae7c7820202225a714d844e8e8f866d7}{prevod\+\_\+na\+\_\+m\+\_\+kod} (double x\+\_\+kon, double y\+\_\+kon)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classvlakno_aae7c7820202225a714d844e8e8f866d7}{vlakno\+::prevod\+\_\+na\+\_\+m\+\_\+kod} \end{DoxyCompactList}\item 
+void \hyperlink{classvlakno_a396bdebeea2156b4fd7509e6dd19dde8}{interpolace\+\_\+usecky} (double x\+\_\+kon, double y\+\_\+kon)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classvlakno_a396bdebeea2156b4fd7509e6dd19dde8}{vlakno\+::interpolace\+\_\+usecky} \end{DoxyCompactList}\item 
+void \hyperlink{classvlakno_a96ef9a30c5750cfb900ac3310eaed85f}{interpolace\+\_\+kruznice\+\_\+g03} (double x\+\_\+kon, double y\+\_\+kon, double i, double j)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classvlakno_a96ef9a30c5750cfb900ac3310eaed85f}{vlakno\+::interpolace\+\_\+kruznice\+\_\+g03} \end{DoxyCompactList}\item 
+void \hyperlink{classvlakno_ae4a4c98596598b8e4db0dad97d6d7939}{interpolace\+\_\+kruznice\+\_\+g02} (double x\+\_\+kon, double y\+\_\+kon, double i, double j)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classvlakno_ae4a4c98596598b8e4db0dad97d6d7939}{vlakno\+::interpolace\+\_\+kruznice\+\_\+g02} \end{DoxyCompactList}\item 
+void \hyperlink{classvlakno_ab6996cfec8d0ec5fa11da5cb5b87c59d}{odpojit} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classvlakno_ab6996cfec8d0ec5fa11da5cb5b87c59d}{vlakno\+::odpojit} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Veřejné atributy}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classvlakno_aac2ef6a4c234e41b3bc44fe7bb1418c9}{}bool {\bfseries stop}\label{classvlakno_aac2ef6a4c234e41b3bc44fe7bb1418c9}
+
+\item 
+\hypertarget{classvlakno_a5eb7dbbb3e3bbaebcbe48785bd013169}{}bool {\bfseries pause} = false\label{classvlakno_a5eb7dbbb3e3bbaebcbe48785bd013169}
+
+\item 
+\hypertarget{classvlakno_a0ff23a0f2c8474fb1381458b86a75f4a}{}Q\+String {\bfseries filename}\label{classvlakno_a0ff23a0f2c8474fb1381458b86a75f4a}
+
+\item 
+\hypertarget{classvlakno_a4b560e845d53f2194817ae4f63a790ce}{}Q\+String {\bfseries port}\label{classvlakno_a4b560e845d53f2194817ae4f63a790ce}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailní popis}
+Trida vlakno je pracovní trida, ve které se odehrává cely proces tisku(interpolace bodů, seriova komunikace) 
+
+\subsection{Dokumentace konstruktoru a destruktoru}
+\hypertarget{classvlakno_a102c887fab360691a40c3ab39fc4f07c}{}\index{vlakno@{vlakno}!vlakno@{vlakno}}
+\index{vlakno@{vlakno}!vlakno@{vlakno}}
+\subsubsection[{vlakno(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}vlakno\+::vlakno (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classvlakno_a102c887fab360691a40c3ab39fc4f07c}
+
+
+\hyperlink{classvlakno_a102c887fab360691a40c3ab39fc4f07c}{vlakno\+::vlakno} 
+
+
+\begin{DoxyParams}{Parametry}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentace k metodám}
+\hypertarget{classvlakno_ae4a4c98596598b8e4db0dad97d6d7939}{}\index{vlakno@{vlakno}!interpolace\+\_\+kruznice\+\_\+g02@{interpolace\+\_\+kruznice\+\_\+g02}}
+\index{interpolace\+\_\+kruznice\+\_\+g02@{interpolace\+\_\+kruznice\+\_\+g02}!vlakno@{vlakno}}
+\subsubsection[{interpolace\+\_\+kruznice\+\_\+g02(double x\+\_\+kon, double y\+\_\+kon, double i, double j)}]{\setlength{\rightskip}{0pt plus 5cm}void vlakno\+::interpolace\+\_\+kruznice\+\_\+g02 (
+\begin{DoxyParamCaption}
+\item[{double}]{x\+\_\+kon, }
+\item[{double}]{y\+\_\+kon, }
+\item[{double}]{i, }
+\item[{double}]{j}
+\end{DoxyParamCaption}
+)}\label{classvlakno_ae4a4c98596598b8e4db0dad97d6d7939}
+
+
+\hyperlink{classvlakno_ae4a4c98596598b8e4db0dad97d6d7939}{vlakno\+::interpolace\+\_\+kruznice\+\_\+g02} 
+
+Metoda interpolující body pro funkci G02 
+\begin{DoxyParams}{Parametry}
+{\em x\+\_\+kon} & \\
+\hline
+{\em y\+\_\+kon} & \\
+\hline
+{\em i} & \\
+\hline
+{\em j} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classvlakno_a96ef9a30c5750cfb900ac3310eaed85f}{}\index{vlakno@{vlakno}!interpolace\+\_\+kruznice\+\_\+g03@{interpolace\+\_\+kruznice\+\_\+g03}}
+\index{interpolace\+\_\+kruznice\+\_\+g03@{interpolace\+\_\+kruznice\+\_\+g03}!vlakno@{vlakno}}
+\subsubsection[{interpolace\+\_\+kruznice\+\_\+g03(double x\+\_\+kon, double y\+\_\+kon, double i, double j)}]{\setlength{\rightskip}{0pt plus 5cm}void vlakno\+::interpolace\+\_\+kruznice\+\_\+g03 (
+\begin{DoxyParamCaption}
+\item[{double}]{x\+\_\+kon, }
+\item[{double}]{y\+\_\+kon, }
+\item[{double}]{i, }
+\item[{double}]{j}
+\end{DoxyParamCaption}
+)}\label{classvlakno_a96ef9a30c5750cfb900ac3310eaed85f}
+
+
+\hyperlink{classvlakno_a96ef9a30c5750cfb900ac3310eaed85f}{vlakno\+::interpolace\+\_\+kruznice\+\_\+g03} 
+
+Metoda interpolujíci body kruznice pro funkci G03 
+\begin{DoxyParams}{Parametry}
+{\em x\+\_\+kon} & \\
+\hline
+{\em y\+\_\+kon} & \\
+\hline
+{\em i} & \\
+\hline
+{\em j} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classvlakno_a396bdebeea2156b4fd7509e6dd19dde8}{}\index{vlakno@{vlakno}!interpolace\+\_\+usecky@{interpolace\+\_\+usecky}}
+\index{interpolace\+\_\+usecky@{interpolace\+\_\+usecky}!vlakno@{vlakno}}
+\subsubsection[{interpolace\+\_\+usecky(double x\+\_\+kon, double y\+\_\+kon)}]{\setlength{\rightskip}{0pt plus 5cm}void vlakno\+::interpolace\+\_\+usecky (
+\begin{DoxyParamCaption}
+\item[{double}]{x\+\_\+kon, }
+\item[{double}]{y\+\_\+kon}
+\end{DoxyParamCaption}
+)}\label{classvlakno_a396bdebeea2156b4fd7509e6dd19dde8}
+
+
+\hyperlink{classvlakno_a396bdebeea2156b4fd7509e6dd19dde8}{vlakno\+::interpolace\+\_\+usecky} 
+
+Metoda Interpolujici body přímky, využití u funkcí G01 a G00 
+\begin{DoxyParams}{Parametry}
+{\em x\+\_\+kon} & \\
+\hline
+{\em y\+\_\+kon} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classvlakno_ab6996cfec8d0ec5fa11da5cb5b87c59d}{}\index{vlakno@{vlakno}!odpojit@{odpojit}}
+\index{odpojit@{odpojit}!vlakno@{vlakno}}
+\subsubsection[{odpojit()}]{\setlength{\rightskip}{0pt plus 5cm}void vlakno\+::odpojit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classvlakno_ab6996cfec8d0ec5fa11da5cb5b87c59d}
+
+
+\hyperlink{classvlakno_ab6996cfec8d0ec5fa11da5cb5b87c59d}{vlakno\+::odpojit} 
+
+Odpoji (pokud jiz nejsou odpojeny) vystupni a vystupni soubor a seriove pripojeni. \hypertarget{classvlakno_aee3ebe4032780ee3e04f4d96869a1647}{}\index{vlakno@{vlakno}!poslat\+\_\+int@{poslat\+\_\+int}}
+\index{poslat\+\_\+int@{poslat\+\_\+int}!vlakno@{vlakno}}
+\subsubsection[{poslat\+\_\+int(int data)}]{\setlength{\rightskip}{0pt plus 5cm}int vlakno\+::poslat\+\_\+int (
+\begin{DoxyParamCaption}
+\item[{int}]{data}
+\end{DoxyParamCaption}
+)}\label{classvlakno_aee3ebe4032780ee3e04f4d96869a1647}
+
+
+\hyperlink{classvlakno_aee3ebe4032780ee3e04f4d96869a1647}{vlakno\+::poslat\+\_\+int} 
+
+Posílá na zvolený seriový port posílá číselná data
+
+
+\begin{DoxyParams}{Parametry}
+{\em data} & Cislo k poslani \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+vraci to cislo 
+\end{DoxyReturn}
+\hypertarget{classvlakno_aae7c7820202225a714d844e8e8f866d7}{}\index{vlakno@{vlakno}!prevod\+\_\+na\+\_\+m\+\_\+kod@{prevod\+\_\+na\+\_\+m\+\_\+kod}}
+\index{prevod\+\_\+na\+\_\+m\+\_\+kod@{prevod\+\_\+na\+\_\+m\+\_\+kod}!vlakno@{vlakno}}
+\subsubsection[{prevod\+\_\+na\+\_\+m\+\_\+kod(double x\+\_\+kon, double y\+\_\+kon)}]{\setlength{\rightskip}{0pt plus 5cm}void vlakno\+::prevod\+\_\+na\+\_\+m\+\_\+kod (
+\begin{DoxyParamCaption}
+\item[{double}]{x\+\_\+kon, }
+\item[{double}]{y\+\_\+kon}
+\end{DoxyParamCaption}
+)}\label{classvlakno_aae7c7820202225a714d844e8e8f866d7}
+
+
+\hyperlink{classvlakno_aae7c7820202225a714d844e8e8f866d7}{vlakno\+::prevod\+\_\+na\+\_\+m\+\_\+kod} 
+
+Vypočítává kroky pro motory z aktuální a následné pozice 
+\begin{DoxyParams}{Parametry}
+{\em x\+\_\+kon} & \\
+\hline
+{\em y\+\_\+kon} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classvlakno_ab7d88058b2c59385ff62a1f614afdbc1}{}\index{vlakno@{vlakno}!run@{run}}
+\index{run@{run}!vlakno@{vlakno}}
+\subsubsection[{run()}]{\setlength{\rightskip}{0pt plus 5cm}void vlakno\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classvlakno_ab7d88058b2c59385ff62a1f614afdbc1}
+
+
+\hyperlink{classvlakno_ab7d88058b2c59385ff62a1f614afdbc1}{vlakno\+::run} 
+
+vlákno provádějící všechny tisknoucí úlohy a výpočty \hypertarget{classvlakno_ab8e99f38af287397d9ef196a15e3e9e2}{}\index{vlakno@{vlakno}!zapsat@{zapsat}}
+\index{zapsat@{zapsat}!vlakno@{vlakno}}
+\subsubsection[{zapsat(int data)}]{\setlength{\rightskip}{0pt plus 5cm}void vlakno\+::zapsat (
+\begin{DoxyParamCaption}
+\item[{int}]{data}
+\end{DoxyParamCaption}
+)}\label{classvlakno_ab8e99f38af287397d9ef196a15e3e9e2}
+
+
+\hyperlink{classvlakno_ab8e99f38af287397d9ef196a15e3e9e2}{vlakno\+::zapsat} 
+
+Zapisuje do dodatečného souboru všechny instrukce, které budou následně řádek po řádku poslány do plotteru 
+\begin{DoxyParams}{Parametry}
+{\em data} & \\
+\hline
+\end{DoxyParams}
+
+
+Dokumentace pro tuto třídu byla generována z následujících souborů\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vlakno_8h}{vlakno.\+h}\item 
+\hyperlink{vlakno_8cpp}{vlakno.\+cpp}\end{DoxyCompactItemize}

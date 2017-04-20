@@ -1,0 +1,250 @@
+#!/bin/bash
+
+# Autor: Jan Jurča xjurca08
+# Datum: 22.3.2017
+# Prvni projekt do IOS
+
+POSIXLY_CORRECT=yes
+DIR=$(pwd)
+
+# variables
+FILES_COUNT=0
+DIR_COUNT=0
+LESS_100B=0
+i_FLAG=0
+n_FLAG=0
+
+if [ -t 1 ]; then
+  TERMINAL_WIDTH=$(tput cols);
+else
+  TERMINAL_WIDTH=80;
+fi
+
+
+while getopts :i:n opt $@; do
+  case $opt in
+    i) FILE_ERE=$OPTARG ;;
+
+    n) n_FLAG=1 ;;
+
+    \?) printf "Invalid option: -$OPTARG \nHelp: accepted params -n [-i regexp] [dir]\n"  >&2 & exit 1  ;;
+  esac
+done
+
+shift $((OPTIND - 1))  # shifts away every option argument,
+                       # leaving your path as $1, and every
+                       # positional argument as $@
+
+DIR="${1-$(pwd)}"
+#test správnosti cesty
+DIR_CORRECT=0
+ls $DIR > /dev/null  && DIR_CORRECT=1
+if [ $DIR_CORRECT -ne 1 ]; then
+  echo "Neexistujici adresar" >&2
+  exit 1
+fi
+ERE_MATCH_ROOT=0
+echo $(pwd) | egrep "${FILE_ERE-$^}" && ERE_MATCH_ROOT=1
+if [ $ERE_MATCH_ROOT -eq 1 ]; then
+  echo "FILE_ERE odpovida korenovemu adresari" >&2
+  exit 0
+fi
+
+FILES_COUNT=$(find $DIR -type f  -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \; | wc -l)
+DIR_COUNT=$(find $DIR  -type d | grep -E -v "${FILE_ERE-$^}" | wc -l)
+
+LESS_100B=$(find $DIR -type f  -size -100c   -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \;  | wc -l)
+LESS_1Kib=$(find $DIR -type f -not -size -100c  -size -1024c -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \;   | wc -l)
+LESS_10Kib=$(find $DIR -type f -not -size -1024c  -size -10k  -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \;   | wc -l)
+LESS_100Kib=$(find $DIR -type f  -not -size -10k  -size -100k  -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \; | wc -l)
+LESS_1Mib=$(find $DIR -type f -not -size -100k  -size -1024k  -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \;    | wc -l)
+LESS_10Mib=$(find $DIR -type f -not -size -1024k  -size -10M  -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \;   | wc -l)
+LESS_100Mib=$(find $DIR -type f -not -size -10M  -size -100M  -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \;    | wc -l)
+LESS_1Gib=$(find $DIR -type f -not -size -100M  -size -1024M  -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \;    | wc -l)
+MORE_1Gib=$(find $DIR -type f -not -size -1024M  -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \;     | wc -l)
+
+#echo $LESS_100B
+#echo $LESS_1Kib
+#echo $LESS_10Kib
+#echo $LESS_100Kib
+#echo $LESS_1Mib
+#echo $LESS_10Mib
+#echo $LESS_100Mib
+#echo $LESS_1Gib
+#echo $MORE_1Gib
+
+#zacatek vypisovani
+echo Root directory: $DIR
+echo Directories: $DIR_COUNT
+echo All files: $FILES_COUNT
+echo File size histogram:
+
+if [ $n_FLAG -eq 1 ] ; then #normalizovany historgram
+
+#normalizace velikostí
+
+file_size_count[0]=$LESS_100B
+file_size_count[1]=$LESS_1Kib
+file_size_count[2]=$LESS_10Kib
+file_size_count[3]=$LESS_100Kib
+file_size_count[4]=$LESS_1Mib
+file_size_count[5]=$LESS_10Mib
+file_size_count[6]=$LESS_100Mib
+file_size_count[7]=$LESS_1Gib
+file_size_count[8]=$MORE_1Gib
+max=0
+for i in {0..8}
+do
+  if [ $max -lt ${file_size_count[$i]} ]; then
+    max=${file_size_count[$i]}
+  fi
+done
+
+if [ $max -eq 0 ]; then
+  ratio=1
+else
+  ratio=$(echo "scale=7;($TERMINAL_WIDTH-12)/$max" | bc);
+fi
+
+
+for i in {0..8}
+do
+    file_size_count[$i]=$(echo "scale=7;${file_size_count[$i]}*$ratio" | bc  | cut -d "." -f 1)
+done
+
+LESS_100B=${file_size_count[0]};
+LESS_1Kib=${file_size_count[1]};
+LESS_10Kib=${file_size_count[2]};
+LESS_100Kib=${file_size_count[3]};
+LESS_1Mib=${file_size_count[4]};
+LESS_10Mib=${file_size_count[5]};
+LESS_100Mib=${file_size_count[6]};
+LESS_1Gib=${file_size_count[7]};
+MORE_1Gib=${file_size_count[8]};
+
+
+#konec  normalizace velikostí
+
+  printf "  <100 B  : "
+  printf "%"$LESS_100B"s\n" |tr " " "#"
+  printf "  <1 KiB  : "
+  printf "%"$LESS_1Kib"s\n" |tr " " "#"
+  printf "  <10 KiB : "
+  printf "%"$LESS_10Kib"s\n" |tr " " "#"
+  printf "  <100 KiB: "
+  printf "%"$LESS_100Kib"s\n" |tr " " "#"
+  printf "  <1 MiB  : "
+  printf "%"$LESS_1Mib"s\n" |tr " " "#"
+  printf "  <10 MiB : "
+  printf "%"$LESS_10Mib"s\n" |tr " " "#"
+  printf "  <100 MiB: "
+  printf "%"$LESS_100Mib"s\n" |tr " " "#"
+  printf "  <1 GiB  : "
+  printf "%"$LESS_1Gib"s\n" |tr " " "#"
+  printf "  >=1 GiB : "
+  printf "%"$MORE_1Gib"s\n" |tr " " "#"
+
+  echo "File type histogram:"
+  find $DIR -type f   -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \; |  sort | awk '{name=$0; if(length(name) > 40){array_size=split(name,name_arr,""); name_arr[41]="."; name_arr[42]="."; name_arr[43]=".";name=""; for(i = 1; i < array_size; i++){name = name name_arr[i];}}; printf "%.43s\n", name;}' | uniq -c | sort -r -n | awk -v terminal_w="$TERMINAL_WIDTH" '
+    BEGIN {
+      row_count = 0;
+
+    }
+    {
+      row_count += 1;
+      array_counts[row_count] = $1;
+      $1="";
+      $1=$1;
+      array_categories[row_count] = $0;
+
+    }
+    END {
+      ########### start of normalization
+      max=0;
+      for(i = 1; i <= row_count;i++ ){
+        if(int(max) < int(array_counts[i])){
+          max = array_counts[i];
+        }
+      }
+      if(max != 0){
+        ratio = int(terminal_w - 48) / max;
+      } else {
+        ratio=1;
+      }
+      # calculation of normalized counts
+      for(i = 1; i <= row_count;i++ ){
+        array_counts[i] = array_counts[i] * ratio;
+      }
+      ############ end of normalization
+
+      for(i = 1 ; i <= row_count;i++){
+        printf " %-44.44s: ",array_categories[i];
+        for(j = 1 ; j <= array_counts[i];j++){
+          printf "#";
+        }
+        printf "\n";
+        if(i == 10){
+          break;
+        }
+      }
+    }
+    ';
+else
+    LESS_100B=$(echo "$LESS_100B*1" | bc)
+    LESS_1Kib=$(echo "$LESS_1Kib*1" | bc)
+    LESS_10Kib=$(echo "$LESS_10Kib*1" | bc)
+    LESS_100Kib=$(echo "$LESS_100Kib*1" | bc)
+    LESS_1Mib=$(echo "$LESS_1Mib*1" | bc)
+    LESS_10Mib=$(echo "$LESS_10Mib*1" | bc)
+    LESS_100Mib=$(echo "$LESS_100Mib*1" | bc)
+    LESS_1Gib=$(echo "$LESS_1Gib*1" | bc)
+    MORE_1Gib=$(echo "$MORE_1Gib*1" | bc)
+
+    printf "  <100 B  : "
+    printf "%"$LESS_100B"s\n" |tr " " "#"
+    printf "  <1 KiB  : "
+    printf "%"$LESS_1Kib"s\n" |tr " " "#"
+    printf "  <10 KiB : "
+    printf "%"$LESS_10Kib"s\n" |tr " " "#"
+    printf "  <100 KiB: "
+    printf "%"$LESS_100Kib"s\n" |tr " " "#"
+    printf "  <1 MiB  : "
+    printf "%"$LESS_1Mib"s\n" |tr " " "#"
+    printf "  <10 MiB : "
+    printf "%"$LESS_10Mib"s\n" |tr " " "#"
+    printf "  <100 MiB: "
+    printf "%"$LESS_100Mib"s\n" |tr " " "#"
+    printf "  <1 GiB  : "
+    printf "%"$LESS_1Gib"s\n" |tr " " "#"
+    printf "  >=1 GiB : "
+    printf "%"$MORE_1Gib"s\n" |tr " " "#"
+
+    echo "File type histogram:"
+    find $DIR -type f   -exec sh -c " echo '{}' | grep -E -v '${FILE_ERE-$^}' > /dev/null  && file -b '{}' " \; |  sort | awk '{name=$0; if(length(name) > 40){array_size=split(name,name_arr,""); name_arr[41]="."; name_arr[42]="."; name_arr[43]=".";name=""; for(i = 1; i < array_size; i++){name = name name_arr[i];}}; printf "%.43s\n", name;}' | uniq -c | sort -r -n | awk -v terminal_w="$TERMINAL_WIDTH" '
+      BEGIN {
+        row_count = 0;
+      }
+      {
+        row_count += 1;
+        array_counts[row_count] = $1;
+        $1="";
+        $1=$1;
+        array_categories[row_count] = $0;
+      }
+      END {
+
+        for(i = 1 ; i <= row_count;i++){
+          printf " %-44.44s: ",array_categories[i];
+          for(j = 1 ; j <= array_counts[i];j++){
+            printf "#";
+          }
+          printf "\n";
+          if(i == 10){
+            break;
+          }
+        }
+      }
+      ';
+fi
+
+exit 0

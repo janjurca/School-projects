@@ -1,0 +1,78 @@
+\hypertarget{group__Pocitani__s__objekty}{}\section{Pocitani\+\_\+s\+\_\+objekty}
+\label{group__Pocitani__s__objekty}\index{Pocitani\+\_\+s\+\_\+objekty@{Pocitani\+\_\+s\+\_\+objekty}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{group__Pocitani__s__objekty_ga703ce6afddf65026b68645bc5394405b}{obj\+\_\+distance} (struct \hyperlink{structobj__t}{obj\+\_\+t} $\ast$o1, struct \hyperlink{structobj__t}{obj\+\_\+t} $\ast$o2)
+\begin{DoxyCompactList}\small\item\em obj\+\_\+distance \end{DoxyCompactList}\item 
+float \hyperlink{group__Pocitani__s__objekty_gaf336f28a62c28da792f6def84f432bb2}{cluster\+\_\+distance} (struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$c1, struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$c2)
+\begin{DoxyCompactList}\small\item\em cluster\+\_\+distance \end{DoxyCompactList}\item 
+void \hyperlink{group__Pocitani__s__objekty_ga5f16d682e7c859f7bd3f27697c2b7cc0}{find\+\_\+neighbours} (struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$carr, int narr, int $\ast$c1, int $\ast$c2)
+\begin{DoxyCompactList}\small\item\em find\+\_\+neighbours \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__Pocitani__s__objekty_gaf336f28a62c28da792f6def84f432bb2}{}\label{group__Pocitani__s__objekty_gaf336f28a62c28da792f6def84f432bb2} 
+\index{Pocitani\+\_\+s\+\_\+objekty@{Pocitani\+\_\+s\+\_\+objekty}!cluster\+\_\+distance@{cluster\+\_\+distance}}
+\index{cluster\+\_\+distance@{cluster\+\_\+distance}!Pocitani\+\_\+s\+\_\+objekty@{Pocitani\+\_\+s\+\_\+objekty}}
+\subsubsection{\texorpdfstring{cluster\+\_\+distance()}{cluster\_distance()}}
+{\footnotesize\ttfamily float cluster\+\_\+distance (\begin{DoxyParamCaption}\item[{struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$}]{c1,  }\item[{struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$}]{c2 }\end{DoxyParamCaption})}
+
+
+
+cluster\+\_\+distance 
+
+Pocita vzdalenost dvou shluku podle nejvzdalenejsiho bodu. 
+\begin{DoxyParams}{Parameters}
+{\em c1} & prvni shluk \\
+\hline
+{\em c2} & druhy shluk \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vzdalenost shluku 
+\end{DoxyReturn}
+\hypertarget{group__Pocitani__s__objekty_ga5f16d682e7c859f7bd3f27697c2b7cc0}{}\label{group__Pocitani__s__objekty_ga5f16d682e7c859f7bd3f27697c2b7cc0} 
+\index{Pocitani\+\_\+s\+\_\+objekty@{Pocitani\+\_\+s\+\_\+objekty}!find\+\_\+neighbours@{find\+\_\+neighbours}}
+\index{find\+\_\+neighbours@{find\+\_\+neighbours}!Pocitani\+\_\+s\+\_\+objekty@{Pocitani\+\_\+s\+\_\+objekty}}
+\subsubsection{\texorpdfstring{find\+\_\+neighbours()}{find\_neighbours()}}
+{\footnotesize\ttfamily void find\+\_\+neighbours (\begin{DoxyParamCaption}\item[{struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$}]{carr,  }\item[{int}]{narr,  }\item[{int $\ast$}]{c1,  }\item[{int $\ast$}]{c2 }\end{DoxyParamCaption})}
+
+
+
+find\+\_\+neighbours 
+
+Hleda dva nejblizsi shluky v poli shluku. 
+\begin{DoxyParams}{Parameters}
+{\em carr} & ukazatel na prvni prvek pole shluku \\
+\hline
+{\em narr} & pocet prvku pole shluku \\
+\hline
+{\em c1} & index jednoho blizkeho shluku \\
+\hline
+{\em c2} & index druheho blizkeho shluku \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__Pocitani__s__objekty_ga703ce6afddf65026b68645bc5394405b}{}\label{group__Pocitani__s__objekty_ga703ce6afddf65026b68645bc5394405b} 
+\index{Pocitani\+\_\+s\+\_\+objekty@{Pocitani\+\_\+s\+\_\+objekty}!obj\+\_\+distance@{obj\+\_\+distance}}
+\index{obj\+\_\+distance@{obj\+\_\+distance}!Pocitani\+\_\+s\+\_\+objekty@{Pocitani\+\_\+s\+\_\+objekty}}
+\subsubsection{\texorpdfstring{obj\+\_\+distance()}{obj\_distance()}}
+{\footnotesize\ttfamily float obj\+\_\+distance (\begin{DoxyParamCaption}\item[{struct \hyperlink{structobj__t}{obj\+\_\+t} $\ast$}]{o1,  }\item[{struct \hyperlink{structobj__t}{obj\+\_\+t} $\ast$}]{o2 }\end{DoxyParamCaption})}
+
+
+
+obj\+\_\+distance 
+
+Pocita Euklidovskou vzdalenost mezi dvema objekty. 
+\begin{DoxyParams}{Parameters}
+{\em o1} & ukazatel na prvni objekt \\
+\hline
+{\em o2} & ukazatel na druhy objekt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vzdalenost mezi objekty 
+\end{DoxyReturn}

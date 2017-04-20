@@ -1,0 +1,150 @@
+\hypertarget{group__Prace__se__shluky}{}\section{Prace\+\_\+se\+\_\+shluky}
+\label{group__Prace__se__shluky}\index{Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__Prace__se__shluky_ga96db0862471d90abb3d80103ef3695f7}{init\+\_\+cluster} (struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$c, int cap)
+\begin{DoxyCompactList}\small\item\em init\+\_\+cluster \end{DoxyCompactList}\item 
+void \hyperlink{group__Prace__se__shluky_ga8289f092f205baeb13cf33cfffa15324}{clear\+\_\+cluster} (struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$c)
+\begin{DoxyCompactList}\small\item\em clear\+\_\+cluster \end{DoxyCompactList}\item 
+struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$ \hyperlink{group__Prace__se__shluky_ga0d8702f8bee3bccb81380e012a615a3d}{resize\+\_\+cluster} (struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$c, int new\+\_\+cap)
+\begin{DoxyCompactList}\small\item\em resize\+\_\+cluster \end{DoxyCompactList}\item 
+void \hyperlink{group__Prace__se__shluky_gab6269b64b2c7f4842a51c58b2d86a2e5}{append\+\_\+cluster} (struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$c, struct \hyperlink{structobj__t}{obj\+\_\+t} obj)
+\begin{DoxyCompactList}\small\item\em append\+\_\+cluster \end{DoxyCompactList}\item 
+void \hyperlink{group__Prace__se__shluky_gac39a25fdec1f4952ec92ee5407893158}{merge\+\_\+clusters} (struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$c1, struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$c2)
+\begin{DoxyCompactList}\small\item\em merge\+\_\+clusters \end{DoxyCompactList}\item 
+int \hyperlink{group__Prace__se__shluky_gaf73744f9128e4605127b40932a730a48}{remove\+\_\+cluster} (struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$carr, int narr, int idx)
+\begin{DoxyCompactList}\small\item\em remove\+\_\+cluster \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{group__Prace__se__shluky_gafb09f2bf4615f5ac7a91807aa086d4c3}{C\+L\+U\+S\+T\+E\+R\+\_\+\+C\+H\+U\+NK}
+\begin{DoxyCompactList}\small\item\em C\+L\+U\+S\+T\+E\+R\+\_\+\+C\+H\+U\+NK. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__Prace__se__shluky_gab6269b64b2c7f4842a51c58b2d86a2e5}{}\label{group__Prace__se__shluky_gab6269b64b2c7f4842a51c58b2d86a2e5} 
+\index{Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}!append\+\_\+cluster@{append\+\_\+cluster}}
+\index{append\+\_\+cluster@{append\+\_\+cluster}!Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}}
+\subsubsection{\texorpdfstring{append\+\_\+cluster()}{append\_cluster()}}
+{\footnotesize\ttfamily void append\+\_\+cluster (\begin{DoxyParamCaption}\item[{struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$}]{c,  }\item[{struct \hyperlink{structobj__t}{obj\+\_\+t}}]{obj }\end{DoxyParamCaption})}
+
+
+
+append\+\_\+cluster 
+
+Na konec shluku prida objekt. 
+\begin{DoxyParams}{Parameters}
+{\em c} & ukazatel na shluk do ktereho se ma pridat \\
+\hline
+{\em obj} & objekt ktery se ma pridat \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__Prace__se__shluky_ga8289f092f205baeb13cf33cfffa15324}{}\label{group__Prace__se__shluky_ga8289f092f205baeb13cf33cfffa15324} 
+\index{Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}!clear\+\_\+cluster@{clear\+\_\+cluster}}
+\index{clear\+\_\+cluster@{clear\+\_\+cluster}!Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}}
+\subsubsection{\texorpdfstring{clear\+\_\+cluster()}{clear\_cluster()}}
+{\footnotesize\ttfamily void clear\+\_\+cluster (\begin{DoxyParamCaption}\item[{struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+clear\+\_\+cluster 
+
+Odstrani vsechny objekty shluku \textquotesingle{}c\textquotesingle{} a vynuluje velikost a kapacitu 
+\begin{DoxyParams}{Parameters}
+{\em c} & ukazatel na shluk \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__Prace__se__shluky_ga96db0862471d90abb3d80103ef3695f7}{}\label{group__Prace__se__shluky_ga96db0862471d90abb3d80103ef3695f7} 
+\index{Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}!init\+\_\+cluster@{init\+\_\+cluster}}
+\index{init\+\_\+cluster@{init\+\_\+cluster}!Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}}
+\subsubsection{\texorpdfstring{init\+\_\+cluster()}{init\_cluster()}}
+{\footnotesize\ttfamily void init\+\_\+cluster (\begin{DoxyParamCaption}\item[{struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$}]{c,  }\item[{int}]{cap }\end{DoxyParamCaption})}
+
+
+
+init\+\_\+cluster 
+
+Inicializuje shluk \textquotesingle{}c\textquotesingle{}. Alokuje pamet pro urcity pocet bodu ve shluku. 
+\begin{DoxyParams}{Parameters}
+{\em c} & ukazatel na shluk \\
+\hline
+{\em cap} & pocet shluku pro ktere se ma alokovat misto \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__Prace__se__shluky_gac39a25fdec1f4952ec92ee5407893158}{}\label{group__Prace__se__shluky_gac39a25fdec1f4952ec92ee5407893158} 
+\index{Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}!merge\+\_\+clusters@{merge\+\_\+clusters}}
+\index{merge\+\_\+clusters@{merge\+\_\+clusters}!Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}}
+\subsubsection{\texorpdfstring{merge\+\_\+clusters()}{merge\_clusters()}}
+{\footnotesize\ttfamily void merge\+\_\+clusters (\begin{DoxyParamCaption}\item[{struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$}]{c1,  }\item[{struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$}]{c2 }\end{DoxyParamCaption})}
+
+
+
+merge\+\_\+clusters 
+
+Spoji dva shluky. 
+\begin{DoxyParams}{Parameters}
+{\em c1} & shluk do ktereho se pridavaji objekty \\
+\hline
+{\em c2} & shluk ze ktereho se kopiruji objekty \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__Prace__se__shluky_gaf73744f9128e4605127b40932a730a48}{}\label{group__Prace__se__shluky_gaf73744f9128e4605127b40932a730a48} 
+\index{Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}!remove\+\_\+cluster@{remove\+\_\+cluster}}
+\index{remove\+\_\+cluster@{remove\+\_\+cluster}!Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}}
+\subsubsection{\texorpdfstring{remove\+\_\+cluster()}{remove\_cluster()}}
+{\footnotesize\ttfamily int remove\+\_\+cluster (\begin{DoxyParamCaption}\item[{struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$}]{carr,  }\item[{int}]{narr,  }\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+remove\+\_\+cluster 
+
+Odstrani shluk z pole shluku 
+\begin{DoxyParams}{Parameters}
+{\em carr} & ukazatel na prvni polozku pole shluku \\
+\hline
+{\em narr} & pocet shluku v poli \\
+\hline
+{\em idx} & index shluku pro odstraneni \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novy pocet shluku v poli 
+\end{DoxyReturn}
+\hypertarget{group__Prace__se__shluky_ga0d8702f8bee3bccb81380e012a615a3d}{}\label{group__Prace__se__shluky_ga0d8702f8bee3bccb81380e012a615a3d} 
+\index{Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}!resize\+\_\+cluster@{resize\+\_\+cluster}}
+\index{resize\+\_\+cluster@{resize\+\_\+cluster}!Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}}
+\subsubsection{\texorpdfstring{resize\+\_\+cluster()}{resize\_cluster()}}
+{\footnotesize\ttfamily struct \hyperlink{structcluster__t}{cluster\+\_\+t}$\ast$ resize\+\_\+cluster (\begin{DoxyParamCaption}\item[{struct \hyperlink{structcluster__t}{cluster\+\_\+t} $\ast$}]{c,  }\item[{int}]{new\+\_\+cap }\end{DoxyParamCaption})}
+
+
+
+resize\+\_\+cluster 
+
+Zmeni velikost shluku. 
+\begin{DoxyParams}{Parameters}
+{\em c} & ukazatel na shluk \\
+\hline
+{\em new\+\_\+cap} & nova kapacita \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ukazatel na shluk 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\hypertarget{group__Prace__se__shluky_gafb09f2bf4615f5ac7a91807aa086d4c3}{}\label{group__Prace__se__shluky_gafb09f2bf4615f5ac7a91807aa086d4c3} 
+\index{Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}!C\+L\+U\+S\+T\+E\+R\+\_\+\+C\+H\+U\+NK@{C\+L\+U\+S\+T\+E\+R\+\_\+\+C\+H\+U\+NK}}
+\index{C\+L\+U\+S\+T\+E\+R\+\_\+\+C\+H\+U\+NK@{C\+L\+U\+S\+T\+E\+R\+\_\+\+C\+H\+U\+NK}!Prace\+\_\+se\+\_\+shluky@{Prace\+\_\+se\+\_\+shluky}}
+\subsubsection{\texorpdfstring{C\+L\+U\+S\+T\+E\+R\+\_\+\+C\+H\+U\+NK}{CLUSTER\_CHUNK}}
+{\footnotesize\ttfamily const int C\+L\+U\+S\+T\+E\+R\+\_\+\+C\+H\+U\+NK}
+
+
+
+C\+L\+U\+S\+T\+E\+R\+\_\+\+C\+H\+U\+NK. 
+
+Doporuceny pocet novych objektu ve shluku. 

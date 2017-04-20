@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Plotter: Dokumentace souboru vlakno.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Plotter
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">projekt plotteru přes arduino</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="namespaces.html"><span>Prostory&#160;jmen</span></a></li>
+      <li><a href="annotated.html"><span>Třídy</span></a></li>
+      <li class="current"><a href="files.html"><span>Soubory</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Hledat" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Seznam&#160;souborů</span></a></li>
+      <li><a href="globals.html"><span>Symboly&#160;v&#160;souborech</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definice maker</a> &#124;
+<a href="#func-members">Funkce</a> &#124;
+<a href="#var-members">Proměnné</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentace souboru vlakno.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="vlakno_8h_source.html">vlakno.h</a>&quot;</code><br />
+<code>#include &lt;QFile&gt;</code><br />
+<code>#include &lt;QDebug&gt;</code><br />
+<code>#include &lt;QtCore&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;QFileDialog&gt;</code><br />
+<code>#include &lt;QStringList&gt;</code><br />
+<code>#include &lt;QMessageBox&gt;</code><br />
+<code>#include &lt;QSerialPort&gt;</code><br />
+<code>#include &lt;QtSerialPort/QSerialPort&gt;</code><br />
+<code>#include &lt;QtSerialPort/QSerialPortInfo&gt;</code><br />
+<code>#include &quot;<a class="el" href="qcustomplot_8h_source.html">qcustomplot.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definice maker</h2></td></tr>
+<tr class="memitem:a598a3330b3c21701223ee0ca14316eca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a598a3330b3c21701223ee0ca14316eca"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PI</b>&#160;&#160;&#160;3.14159265</td></tr>
+<tr class="separator:a598a3330b3c21701223ee0ca14316eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d29fd112a05080d3c0ed11a4726514"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98d29fd112a05080d3c0ed11a4726514"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>delka_x_kroku</b>&#160;&#160;&#160;0.009075</td></tr>
+<tr class="separator:a98d29fd112a05080d3c0ed11a4726514"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a705c36ed1460bd13ec668315c1163685"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a705c36ed1460bd13ec668315c1163685"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>delka_y_kroku</b>&#160;&#160;&#160;0.009075</td></tr>
+<tr class="separator:a705c36ed1460bd13ec668315c1163685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkce</h2></td></tr>
+<tr class="memitem:a41cb96c5a8fda158e543676bf304b4f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41cb96c5a8fda158e543676bf304b4f1"></a>
+QFile&#160;</td><td class="memItemRight" valign="bottom"><b>x_y_z</b> (&quot;out.txt&quot;)</td></tr>
+<tr class="separator:a41cb96c5a8fda158e543676bf304b4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Proměnné</h2></td></tr>
+<tr class="memitem:a9a3509c96aa008a349eaa1854a0cef97"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a3509c96aa008a349eaa1854a0cef97"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pocet_radku</b></td></tr>
+<tr class="separator:a9a3509c96aa008a349eaa1854a0cef97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b2d67e803f94da43a2951406ae651c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b2d67e803f94da43a2951406ae651c7"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pocet_radku_obnovy</b></td></tr>
+<tr class="separator:a6b2d67e803f94da43a2951406ae651c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40641ad6b2315dbb5dfa09aaa9604063"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40641ad6b2315dbb5dfa09aaa9604063"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>procento_postup</b></td></tr>
+<tr class="separator:a40641ad6b2315dbb5dfa09aaa9604063"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c8cf9dcaad9c1a1aab66c8623e2831"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49c8cf9dcaad9c1a1aab66c8623e2831"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>procento_double</b></td></tr>
+<tr class="separator:a49c8cf9dcaad9c1a1aab66c8623e2831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69a193522e0203be7cc0ea7d193de21a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69a193522e0203be7cc0ea7d193de21a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>procento_int</b></td></tr>
+<tr class="separator:a69a193522e0203be7cc0ea7d193de21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee544c391e244dee0a534b7aa201af44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee544c391e244dee0a534b7aa201af44"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>stav</b></td></tr>
+<tr class="separator:aee544c391e244dee0a534b7aa201af44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a617a47c70795bcff659815ad0efd2266"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a617a47c70795bcff659815ad0efd2266"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>counter</b></td></tr>
+<tr class="separator:a617a47c70795bcff659815ad0efd2266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d1dd344d40b2baf47bee17cd774f82d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d1dd344d40b2baf47bee17cd774f82d"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>zz</b></td></tr>
+<tr class="separator:a6d1dd344d40b2baf47bee17cd774f82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af63cba83bb5d1bf10fa42b2fa09eccd5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af63cba83bb5d1bf10fa42b2fa09eccd5"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>xx</b></td></tr>
+<tr class="separator:af63cba83bb5d1bf10fa42b2fa09eccd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de04a49a1e4953d556b6587c3ee4e50"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2de04a49a1e4953d556b6587c3ee4e50"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>yy</b></td></tr>
+<tr class="separator:a2de04a49a1e4953d556b6587c3ee4e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a130e01a5e36b3dd4b2980c1c3f2929d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a130e01a5e36b3dd4b2980c1c3f2929d2"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>iii</b></td></tr>
+<tr class="separator:a130e01a5e36b3dd4b2980c1c3f2929d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1d2faf15337fd6646049730d5bd9b61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1d2faf15337fd6646049730d5bd9b61"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>iiii</b> = 0</td></tr>
+<tr class="separator:ac1d2faf15337fd6646049730d5bd9b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a968af3e2f6472c9213f0152767527764"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a968af3e2f6472c9213f0152767527764"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>jj</b></td></tr>
+<tr class="separator:a968af3e2f6472c9213f0152767527764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e6ed577a7c669c19de1f9c1b46c872"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3e6ed577a7c669c19de1f9c1b46c872"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>z</b> = 10</td></tr>
+<tr class="separator:ab3e6ed577a7c669c19de1f9c1b46c872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d6475ea91631313f2d4048c7ff43c64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d6475ea91631313f2d4048c7ff43c64"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>x_aktualni</b></td></tr>
+<tr class="separator:a2d6475ea91631313f2d4048c7ff43c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77f0477a493900e9464092a2f3449a79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77f0477a493900e9464092a2f3449a79"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>y_aktualni</b></td></tr>
+<tr class="separator:a77f0477a493900e9464092a2f3449a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cdcd39192e98df7e0b85f920670c397"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5cdcd39192e98df7e0b85f920670c397"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><b>a</b></td></tr>
+<tr class="separator:a5cdcd39192e98df7e0b85f920670c397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad865f1b06602418052638752bdd3d815"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad865f1b06602418052638752bdd3d815"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><b>radek</b></td></tr>
+<tr class="separator:ad865f1b06602418052638752bdd3d815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38893cb667bb63f306f3aaf2df1738a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38893cb667bb63f306f3aaf2df1738a9"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><b>slovo</b></td></tr>
+<tr class="separator:a38893cb667bb63f306f3aaf2df1738a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ae67df138eded2f703087422d0b472"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9ae67df138eded2f703087422d0b472"></a>
+QByteArray&#160;</td><td class="memItemRight" valign="bottom"><b>text</b></td></tr>
+<tr class="separator:ac9ae67df138eded2f703087422d0b472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aa3bc6f7445dbf8ed8522a14a17822b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7aa3bc6f7445dbf8ed8522a14a17822b"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><b>radky</b></td></tr>
+<tr class="separator:a7aa3bc6f7445dbf8ed8522a14a17822b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fea5e9fa290fcb8f450056669537dcd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fea5e9fa290fcb8f450056669537dcd"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><b>line</b></td></tr>
+<tr class="separator:a8fea5e9fa290fcb8f450056669537dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac217dbb18b95c2561203998addb79265"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac217dbb18b95c2561203998addb79265"></a>
+QStringList&#160;</td><td class="memItemRight" valign="bottom"><b>list</b></td></tr>
+<tr class="separator:ac217dbb18b95c2561203998addb79265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaee0964e5d08b026e66784b592f3b04d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaee0964e5d08b026e66784b592f3b04d"></a>
+QStringList&#160;</td><td class="memItemRight" valign="bottom"><b>list_1</b></td></tr>
+<tr class="separator:aaee0964e5d08b026e66784b592f3b04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f9b1bb3f64f0b0ed3b3091eaf97b5b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f9b1bb3f64f0b0ed3b3091eaf97b5b1"></a>
+QStringList&#160;</td><td class="memItemRight" valign="bottom"><b>list_2</b></td></tr>
+<tr class="separator:a3f9b1bb3f64f0b0ed3b3091eaf97b5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28050dca21f61161dcb2b6ce13d07996"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28050dca21f61161dcb2b6ce13d07996"></a>
+QStringList&#160;</td><td class="memItemRight" valign="bottom"><b>prichozi_list</b></td></tr>
+<tr class="separator:a28050dca21f61161dcb2b6ce13d07996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2b8641471bb038fdeb0b624a5f8fd30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2b8641471bb038fdeb0b624a5f8fd30"></a>
+QFile&#160;</td><td class="memItemRight" valign="bottom"><b>g_code</b></td></tr>
+<tr class="separator:ae2b8641471bb038fdeb0b624a5f8fd30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a33aaa5e918407eec80a9afe21c853f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a33aaa5e918407eec80a9afe21c853f"></a>
+QSerialPort&#160;</td><td class="memItemRight" valign="bottom"><b>serial</b></td></tr>
+<tr class="separator:a1a33aaa5e918407eec80a9afe21c853f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4d0eec50d1c4784812d33bdb711fdd4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4d0eec50d1c4784812d33bdb711fdd4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>z_krok_int_ref</b> = 2</td></tr>
+<tr class="separator:af4d0eec50d1c4784812d33bdb711fdd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5945935a5599b2174f5ff267a31a04ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5945935a5599b2174f5ff267a31a04ee"></a>
+QVector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>x</b></td></tr>
+<tr class="separator:a5945935a5599b2174f5ff267a31a04ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd66a05def7881a02266f4d79943bc2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd66a05def7881a02266f4d79943bc2d"></a>
+QVector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
+<tr class="separator:afd66a05def7881a02266f4d79943bc2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generováno programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>
